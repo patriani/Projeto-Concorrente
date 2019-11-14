@@ -10,6 +10,10 @@ public abstract class ArquivoConcorrente{
         setDest(dest);
     }
 
+    protected ArquivoConcorrente(String or){ // construtor 
+        setOr(or);
+    }
+
     public void setOr(String or){
         this.origem = or;
     }
