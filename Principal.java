@@ -20,7 +20,6 @@ public class Principal{
         dest = sc.nextLine();
 
         ar.transf(or,dest); // chama método para copiar o original e colar no diretorio informado como destino
-        ar.delete(or); // deleta o original
 
         System.out.println("Deseja fazer backup de mais algum arquivo ?\n [1 - sim/ 0 - nao]: ");
         aux = sc.nextInt(); 
