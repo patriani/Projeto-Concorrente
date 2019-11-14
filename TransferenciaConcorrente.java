@@ -1,17 +1,17 @@
 import java.io.*;
 import java.nio.channels.FileChannel;
 
-public class Transferencia extends ArquivoConcorrente implements Runnable {
+public class TransferenciaConcorrente extends ArquivoConcorrente implements Runnable {
 
-    public Transferencia() {
+    public TransferenciaConcorrente() {
     }
 
-    public Transferencia(String or, String dest) {
+    public TransferenciaConcorrente(String or, String dest) {
         super(or, dest);
     }
 
     public void run() {
-
+        
         FileChannel canalOrigem = null;
         FileChannel canalDestino = null;
 
@@ -21,8 +21,8 @@ public class Transferencia extends ArquivoConcorrente implements Runnable {
             canalDestino = new FileOutputStream(super.getDest()).getChannel();
             canalOrigem.transferTo(0, canalOrigem.size(), canalDestino);
 
-            File file = new File( super.getOr() );
-            file.delete();
+            //File file = new File( super.getOr() );
+            //file.delete();
 
         } catch (Exception ae) {
 
