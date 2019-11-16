@@ -20,13 +20,11 @@ public class HashConcorrente extends ArquivoConcorrente implements Runnable{
 	@Override
     public void run() {
 
-        HashConcorrente2 tam = new HashConcorrente2();
-
-        setT1(System.currentTimeMillis()); //marca tempo de inicio da operação.
+        HashConcorrente2 hash2 = new HashConcorrente2();
 
         File f = new File (getOr());
         long tamanho = f.length(); // grava tamanho do arquivo original
-        tam.setTamanho(tamanho);        
+        hash2.setTamanho(tamanho);        
     }
     
 }
