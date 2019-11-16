@@ -3,12 +3,14 @@ import java.io.*;
 public class HashConcorrente2 extends ArquivoConcorrente implements Runnable{
 
     private long tamanho;
+    private long t1;
     String destino;
 
     public HashConcorrente2(){}
 
-    public HashConcorrente2(String or,String dest){
+    public HashConcorrente2(String or,String dest,long t1){
         super(or,dest);
+        setT1(t1);
     }
 
     public void setTamanho(long tamanho){
@@ -17,6 +19,14 @@ public class HashConcorrente2 extends ArquivoConcorrente implements Runnable{
 
     public long getTamanho(){
         return this.tamanho;
+    }
+
+    public void setT1(long t1){
+        this.t1 = t1;
+    }
+
+    public long getT1(){
+        return this.t1;
     }
 
     @Override
@@ -41,21 +51,22 @@ public class HashConcorrente2 extends ArquivoConcorrente implements Runnable{
             fdestino.delete();
             long t2 = 0;
             
-            t2 = System.currentTimeMillis();
+            t2 = System.currentTimeMillis()/1000L;
             tempo(t2);
             System.out.println("Erro: o arquivo foi corrompido e a operação foi encerrada - arquivo copia deletado");
         }
         
     }
 
-    public static void tempo(long t2){ // calcula tempo do processo
+    public void tempo(long t2){ // calcula tempo do processo
 
-        HashConcorrente h = new HashConcorrente();
-        long t1 = 0;
-        t1 = h.getT1();// recupera tempo inicial 
-        
-        long tempo = (t2 - t1) - (11000); // - (100) => tirando tempo do sleep e (t1 - t2) para calcular o tempo gasto -> inicial - final
-        tempo = tempo/1000; // transformando para segundos 
+        long t1 = getT1();
+        t2 -= 11000;
+        System.out.println("tempo1: " +t1);
+        System.out.println("tempo2: " +t2);
+        long tempo = (t2 - t1);
+        //tempo = tempo - 11000; // => tirando tempo do sleep e (t1 - t2) para calcular o tempo gasto -> inicial - final
+        //tempo = tempo/1000; // transformando para segundos 
         System.out.println("tempo : " +tempo);
 
     }
