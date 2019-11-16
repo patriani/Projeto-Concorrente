@@ -7,7 +7,6 @@ public class PrincipalConcorrente{
         String or; // recebe diretório de origem do backup
         String dest; // recebe diretório de destino do backup
         int aux = 1; // recebe 0 se não há mais arquivos a serem copiados
-
         Scanner sc = new Scanner(System.in);
 
         
@@ -23,10 +22,13 @@ public class PrincipalConcorrente{
 
             HashConcorrente Hc = new HashConcorrente(or);
             Thread Thc = new Thread(Hc);
-
-            HashConcorrente2 Hc2 = new HashConcorrente2(or,dest);
-            Thread Thc2 = new Thread(Hc2);
             
+            long tempo = System.currentTimeMillis();//1000L; //marca tempo de inicio da operação.
+
+            HashConcorrente2 Hc2 = new HashConcorrente2(or,dest,tempo);
+            Thread Thc2 = new Thread(Hc2);
+
+            // evitando deadlock
             Ttr.sleep(5000);
             Thc2.sleep(6000);
 
