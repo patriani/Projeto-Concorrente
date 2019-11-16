@@ -21,9 +21,6 @@ public class TransferenciaConcorrente extends ArquivoConcorrente implements Runn
             canalDestino = new FileOutputStream(super.getDest()).getChannel();
             canalOrigem.transferTo(0, canalOrigem.size(), canalDestino);
 
-            //File file = new File( super.getOr() );
-            //file.delete();
-
         } catch (Exception ae) {
 
             System.out.println("Erro :  Diretorio inexistente:" + ae.getMessage());
