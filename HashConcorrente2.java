@@ -65,8 +65,6 @@ public class HashConcorrente2 extends ArquivoConcorrente implements Runnable{
         System.out.println("tempo1: " +t1);
         System.out.println("tempo2: " +t2);
         long tempo = (t2 - t1);
-        //tempo = tempo - 11000; // => tirando tempo do sleep e (t1 - t2) para calcular o tempo gasto -> inicial - final
-        //tempo = tempo/1000; // transformando para segundos 
         System.out.println("tempo : " +tempo);
 
     }
