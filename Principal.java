@@ -19,14 +19,9 @@ public class Principal{
 
             Transferencia Tr = new Transferencia(or,dest); // Passa diretorio de origem e de destino como parametros
             Thread Ttr = new Thread(Tr);
-    
-            //Delete Dl = new Delete(); // Passa o diretorio de destino como parametro 
-            //hread Tdl = new Thread(Dl);
             
             Ttr.start(); // inicia thread para cópia e "paste" em outro diretorio
-            
-            //Tdl.start(); // inicia thread para exclusão do arquivo copiado
-            
+                        
             System.out.println("Deseja fazer backup de mais algum arquivo ?\n [1 - sim/ 0 - nao]: ");
             aux = sc.nextInt();
         }
